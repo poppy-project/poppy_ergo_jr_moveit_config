@@ -1,0 +1,11 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: poppy_ergo_jr_description
+    relative_path: urdf/poppy_ergo_jr.urdf
+    xacro_args: ""
+  SRDF:
+    relative_path: config/PoppyErgoJr.srdf
+  CONFIG:
+    author_name: Yoan Mollard
+    author_email: yoan.mollard@poppy-station.org
+    generated_timestamp: 1589207390

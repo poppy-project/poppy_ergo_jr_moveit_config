@@ -1,0 +1,16 @@
+controller_list:
+  - name: fake_arm_controller
+    joints:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
+  - name: fake_finger_controller
+    joints:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
+      - m6
