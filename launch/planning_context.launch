@@ -9,7 +9,7 @@
   <param if="$(arg load_robot_description)" name="$(arg robot_description)" textfile="$(find poppy_ergo_jr_description)/urdf/poppy_ergo_jr.urdf"/>
 
   <!-- The semantic description that corresponds to the URDF -->
-  <param name="$(arg robot_description)_semantic" textfile="$(find poppy_ergo_jr_moveit_config)/config/PoppyErgoJr.srdf" />
+  <param name="$(arg robot_description)_semantic" textfile="$(find poppy_ergo_jr_moveit_config)/config/poppy_ergo_jr.srdf" />
 
   <!-- Load updated joint limits (override information from URDF) -->
   <group ns="$(arg robot_description)_planning">
