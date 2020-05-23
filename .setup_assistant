@@ -4,7 +4,7 @@ moveit_setup_assistant_config:
     relative_path: urdf/poppy_ergo_jr.urdf
     xacro_args: ""
   SRDF:
-    relative_path: config/PoppyErgoJr.srdf
+    relative_path: config/poppy_ergo_jr.srdf
   CONFIG:
     author_name: Yoan Mollard
     author_email: yoan.mollard@poppy-station.org
