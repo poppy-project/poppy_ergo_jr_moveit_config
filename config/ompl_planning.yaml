@@ -146,9 +146,7 @@ arm:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-  projection_evaluator: joints(m1,m2)
-  longest_valid_segment_fraction: 0.005
-finger:
+arm_and_finger:
   default_planner_config: RRTConnect
   planner_configs:
     - SBL
@@ -174,5 +172,3 @@ finger:
     - LazyPRMstar
     - SPARS
     - SPARStwo
-  projection_evaluator: joints(m1,m2)
-  longest_valid_segment_fraction: 0.005

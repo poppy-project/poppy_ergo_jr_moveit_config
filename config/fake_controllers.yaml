@@ -6,7 +6,7 @@ controller_list:
       - m3
       - m4
       - m5
-  - name: fake_finger_controller
+  - name: fake_arm_and_finger_controller
     joints:
       - m1
       - m2
