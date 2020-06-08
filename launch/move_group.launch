@@ -51,13 +51,13 @@
   <!-- Trajectory Execution Functionality -->
   <include ns="move_group" file="$(find poppy_ergo_jr_moveit_config)/launch/trajectory_execution.launch.xml" if="$(arg allow_trajectory_execution)">
     <arg name="moveit_manage_controllers" value="true" />
-    <arg name="moveit_controller_manager" value="PoppyErgoJr" unless="$(arg fake_execution)"/>
+    <arg name="moveit_controller_manager" value="poppy_ergo_jr" unless="$(arg fake_execution)"/>
     <arg name="moveit_controller_manager" value="fake" if="$(arg fake_execution)"/>
   </include>
 
   <!-- Sensors Functionality -->
+    <arg name="moveit_sensor_manager" value="poppy_ergo_jr" />
   <include ns="move_group" file="$(find poppy_ergo_jr_moveit_config)/launch/sensor_manager.launch.xml" if="$(arg allow_trajectory_execution)">
-    <arg name="moveit_sensor_manager" value="PoppyErgoJr" />
   </include>
 
   <!-- Start the actual move_group node/action server -->
