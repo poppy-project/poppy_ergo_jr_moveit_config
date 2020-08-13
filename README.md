@@ -1,6 +1,6 @@
 # MoveIt integration for Poppy Ergo Jr in ROS 1
 
-![Poppy Ergo Jr in RViz ROS Melodic](https://raw.githubusercontent.com/poppy-project/poppy_ergo_jr_description/master/doc/img/rviz.png)
+![Poppy Ergo Jr in RViz ROS Noetic](https://raw.githubusercontent.com/poppy-project/poppy_ergo_jr_moveit_config/36ffb295cf115a080b81aa6475ae512e88c9957a/doc/img/MoveIt.gif)
 
 This package is meant to be used with the following packages:
 * [Poppy controllers](https://github.com/poppy-project/poppy_controllers#ros-melodic-controller-for-poppy-robots) that run on the robot
