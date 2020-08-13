@@ -3,7 +3,9 @@
     This is a format for representing semantic information about the robot structure.
     A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
 -->
-<robot name="poppy_ergo_jr">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="poppy_ergo_jr">
+    <xacro:arg name="lamp" default="false"/>
+    <xacro:arg name="gripper" default="false"/>
     <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
     <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
     <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
@@ -25,6 +27,8 @@
         <joint name="t7f" />
         <chain base_link="base_link" tip_link="fixed_tip" />
     </group>
+
+    <xacro:if value="$(arg gripper)">
     <group name="arm_and_finger">
         <link name="base_link" />
         <link name="long_U" />
@@ -52,9 +56,25 @@
         <joint name="m5" value="0" />
         <joint name="m6" value="0" />
     </group_state>
+    </xacro:if>
+
+    <xacro:if value="$(arg lamp)">
+    <group_state name="base_posture" group="arm">
+        <joint name="m1" value="0" />
+        <joint name="m2" value="0" />
+        <joint name="m3" value="0" />
+        <joint name="m4" value="0" />
+        <joint name="m5" value="0" />
+        <joint name="m6" value="0" />
+    </group_state>
+    </xacro:if>
+
     <!--END EFFECTOR: Purpose: Represent information about an end effector.-->
     <end_effector name="fixed_tip" parent_link="fixed_tip" group="arm" />
+    <xacro:if value="$(arg gripper)">
     <end_effector name="moving_tip" parent_link="moving_tip" group="arm_and_finger" />
+    </xacro:if>
+
     <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
     <disable_collisions link1="base_link" link2="long_U" reason="Adjacent" />
     <disable_collisions link1="long_U" link2="section_1" reason="Adjacent" />
