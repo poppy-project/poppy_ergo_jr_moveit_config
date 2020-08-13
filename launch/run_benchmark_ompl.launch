@@ -6,6 +6,8 @@
   <!-- Load URDF -->
   <include file="$(find poppy_ergo_jr_moveit_config)/launch/planning_context.launch">
     <arg name="load_robot_description" value="true"/>
+    <arg name="lamp" value="true" />
+    <arg name="gripper" value="false" />
   </include>
 
   <!-- Start the database -->

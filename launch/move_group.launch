@@ -1,5 +1,9 @@
 <launch>
 
+  <!-- Choose one of these available end effectors -->
+  <arg name="lamp" default="false" />
+  <arg name="gripper" default="false" />
+
   <!-- GDB Debug Option -->
   <arg name="debug" default="false" />
   <arg unless="$(arg debug)" name="launch_prefix" value="" />
@@ -41,6 +45,8 @@
   <!-- load URDF, SRDF and joint_limits configuration -->
   <include file="$(find poppy_ergo_jr_moveit_config)/launch/planning_context.launch">
     <arg name="load_robot_description" value="$(arg load_robot_description)" />
+    <arg name="lamp" value="$(arg lamp)" />
+    <arg name="gripper" value="$(arg gripper)" />
   </include>
 
   <!-- Planning Functionality -->

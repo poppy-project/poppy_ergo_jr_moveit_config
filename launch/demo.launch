@@ -1,5 +1,9 @@
 <launch>
 
+  <!-- Choose one of these available end effectors -->
+  <arg name="lamp" default="false" />
+  <arg name="gripper" default="false" />
+
   <!-- specify the planning pipeline -->
   <arg name="pipeline" default="ompl" />
 
@@ -20,14 +24,8 @@
   This corresponds to moving around the real robot without the use of MoveIt.
   -->
   <arg name="use_gui" default="false" />
+  <arg name="use_rviz" default="true" />
 
-  <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
-  <include file="$(find poppy_ergo_jr_moveit_config)/launch/planning_context.launch">
-    <arg name="load_robot_description" value="true"/>
-  </include>
-
-  <!-- If needed, broadcast static tf for robot root -->
-  
 
   <!-- If we do not have a robot connected, publish fake joint states -->
   <node if="$(arg fake_execution)" name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
@@ -40,15 +38,17 @@
 
   <!-- Run the main MoveIt! executable without trajectory execution (we do not have controllers configured by default) -->
   <include file="$(find poppy_ergo_jr_moveit_config)/launch/move_group.launch">
+    <arg name="lamp" value="$(arg lamp)" />
+    <arg name="gripper" value="$(arg gripper)" />
     <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="$(arg fake_execution)"/>
+    <arg name="fake_execution" value="true"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
   </include>
 
   <!-- Run Rviz and load the default config to see the state of the move_group node -->
-  <include file="$(find poppy_ergo_jr_moveit_config)/launch/moveit_rviz.launch">
+  <include file="$(find poppy_ergo_jr_moveit_config)/launch/moveit_rviz.launch" if="$(arg use_rviz)">
     <arg name="rviz_config" value="$(find poppy_ergo_jr_moveit_config)/launch/moveit.rviz"/>
     <arg name="debug" value="$(arg debug)"/>
   </include>
