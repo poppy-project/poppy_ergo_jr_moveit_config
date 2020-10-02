@@ -42,7 +42,7 @@
     <arg name="lamp" value="$(arg lamp)" />
     <arg name="gripper" value="$(arg gripper)" />
     <arg name="allow_trajectory_execution" value="true"/>
-    <arg name="fake_execution" value="true"/>
+    <arg name="fake_execution" value="$(arg fake_execution)"/>
     <arg name="info" value="true"/>
     <arg name="debug" value="$(arg debug)"/>
     <arg name="pipeline" value="$(arg pipeline)"/>
