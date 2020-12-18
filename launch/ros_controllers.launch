@@ -6,6 +6,9 @@
 
   <!-- Load the controllers -->
   <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
-    output="screen" args=""/>
+    output="screen" args="--namespace=ergo_jr
+			  joint_state_controller
+			  arm_controller
+			  --timeout 20"/>
 
 </launch>

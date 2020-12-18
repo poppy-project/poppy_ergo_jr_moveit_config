@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="paused" default="false"/>
+  <arg name="gazebo_gui" default="true"/>
+
+  <!-- startup simulated world -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" default="worlds/empty.world"/>
+    <arg name="paused" value="$(arg paused)"/>
+    <arg name="gui" value="$(arg gazebo_gui)"/>
+    <arg name="verbose" value="true"/>
+  </include>
+
+  <!-- send robot urdf to param server -->
+
+  <param name="robot_description" command="$(find xacro)/xacro $(find poppy_ergo_jr_description)/urdf/poppy_ergo_jr.urdf.xacro gripper:=$(arg gripper) lamp:=$(arg lamp)" />
+  <!-- push robot_description to factory and spawn robot in gazebo at the origin, change x,y,z arguments to spawn in a different position -->
+  <node name="spawn_gazebo_model" pkg="gazebo_ros" type="spawn_model" args="-urdf -param robot_description -model ergo_jr -x 0 -y 0 -z 0"
+    respawn="false" output="screen" />
+
+    <include file="$(find moveit_object_handling)/launch/collision_object_generator.launch">
+        <arg name="config_file" value="$(find moveit_object_handling)/config/CollisionObjectsGenerator.yaml"/>
+    </include>
+
+ <!-- <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" > -->
+ <!--    <param name="publish_frequency" type="double" value="50.0" /> -->
+ <!--  </node> -->
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find poppy_ergo_jr_moveit_config)/config/ros_controllers.yaml" command="load"/>
+
+  <!-- Load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" ns="/ergo_jr" output="screen"
+          args="--namespace=/ergo_jr
+          joint_state_controller
+          arm_controller
+          --timeout 20"/>
+
+</launch>

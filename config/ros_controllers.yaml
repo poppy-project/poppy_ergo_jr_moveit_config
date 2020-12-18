@@ -1,5 +1,57 @@
+ergo_jr:
+  # Publish all joint states -----------------------------------
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 50
+
+  arm_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
+      # - m6
+    gains:
+     m1: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m2: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m3: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m4: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m5: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     # m6: {p: 20.0, i: 0.000, d: 0.0, i_clamp: 1}
+
+  arm_and_finger_controller:
+    type: effort_controllers/JointTrajectoryController
+    joints:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
+      - m6
+    gains:
+     m1: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m2: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m3: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m4: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m5: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m6: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+
+
 controller_list:
-  - name: ""
+  - name: "ergo_jr/arm_controller"
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    default: true
+    joints:
+      - m1
+      - m2
+      - m3
+      - m4
+      - m5
+
+  - name: "ergo_jr/arm_and_finger_controller"
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     default: true

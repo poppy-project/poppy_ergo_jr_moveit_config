@@ -5,7 +5,7 @@
 
   <!-- Choose one of these available end effectors -->
   <arg name="lamp" default="false" />
-  <arg name="gripper" default="false" />
+  <arg name="gripper" default="true" />
 
   <!-- startup simulated world -->
   <include file="$(find gazebo_ros)/launch/empty_world.launch">
