@@ -7,6 +7,10 @@ joint_limits:
     max_velocity: 0
     has_acceleration_limits: false
     max_acceleration: 0
+    has_position_limits: true
+    max_position: 1.5707963267948966
+    min_position: -1.5707963267948966
+
   m2:
     has_velocity_limits: false
     max_velocity: 0
