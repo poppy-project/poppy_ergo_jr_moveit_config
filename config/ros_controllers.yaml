@@ -21,6 +21,26 @@ ergo_jr:
      m5: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
      # m6: {p: 20.0, i: 0.000, d: 0.0, i_clamp: 1}
 
+    constraints:
+      goal_time: 0.5                   # Override default
+      stopped_velocity_tolerance: 0.5 # Override default
+      # m1:
+      #   trajectory: 0.5               # Not enforced if unspecified
+      #   goal: 0.5                     # Not enforced if unspecified
+      # m2:
+      #   trajectory: 0.5               # Not enforced if unspecified
+      #   goal: 0.5                     # Not enforced if unspecified
+      # m3:
+      #   trajectory: 0.5               # Not enforced if unspecified
+      #   goal: 0.5                     # Not enforced if unspecified
+      # m4:
+      #   trajectory: 0.5               # Not enforced if unspecified
+      #   goal: 0.5                     # Not enforced if unspecified
+      # m5:
+      #   trajectory: 0.5               # Not enforced if unspecified
+      #   goal: 0.5                     # Not enforced if unspecified
+
+
   arm_and_finger_controller:
     type: effort_controllers/JointTrajectoryController
     joints:

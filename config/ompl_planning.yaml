@@ -146,6 +146,7 @@ arm:
     - LazyPRMstar
     - SPARS
     - SPARStwo
+  enforce_joint_model_state_space: true
 arm_and_finger:
   default_planner_config: RRTConnect
   planner_configs:
