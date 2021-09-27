@@ -14,12 +14,12 @@ ergo_jr:
       - m5
       # - m6
     gains:
-     m1: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m2: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m3: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m4: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m5: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     # m6: {p: 20.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m1: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m2: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m3: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m4: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m5: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     # m6: {p: 20.0, i: 0.000, d: 14.0, i_clamp: 1}
 
     constraints:
       goal_time: 0.5                   # Override default
@@ -51,12 +51,12 @@ ergo_jr:
       - m5
       - m6
     gains:
-     m1: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m2: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m3: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m4: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m5: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
-     m6: {p: 50.0, i: 0.000, d: 0.0, i_clamp: 1}
+     m1: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m2: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m3: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m4: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m5: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
+     m6: {p: 50.0, i: 0.000, d: 14.0, i_clamp: 1}
 
 
   # Position Controllers ---------------------------------------

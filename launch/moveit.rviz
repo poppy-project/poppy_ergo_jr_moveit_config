@@ -47,11 +47,10 @@ Visualization Manager:
       Class: moveit_rviz_plugin/MotionPlanning
       Enabled: true
       Move Group Namespace: ""
-      MoveIt_Allow_Approximate_IK: false
+      MoveIt_Allow_Approximate_IK: true
       MoveIt_Allow_External_Program: false
       MoveIt_Allow_Replanning: false
       MoveIt_Allow_Sensor_Positioning: false
-      MoveIt_Goal_Tolerance: 0
       MoveIt_Planning_Attempts: 10
       MoveIt_Planning_Time: 5
       MoveIt_Use_Cartesian_Path: false
@@ -82,6 +81,15 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          dummy_gripper_tip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ergo_jr/camera_ergo_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           fixed_tip:
             Alpha: 1
             Show Axes: false
@@ -120,6 +128,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Loop Animation: true
         Robot Alpha: 0.5
         Robot Color: 150; 50; 150
@@ -170,6 +182,15 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          dummy_gripper_tip:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
+            Value: true
+          ergo_jr/camera_ergo_link:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
           fixed_tip:
             Alpha: 1
             Show Axes: false
@@ -208,6 +229,10 @@ Visualization Manager:
             Show Axes: false
             Show Trail: false
             Value: true
+          world:
+            Alpha: 1
+            Show Axes: false
+            Show Trail: false
         Robot Alpha: 0.5
         Show Robot Collision: false
         Show Robot Visual: true
@@ -219,6 +244,10 @@ Visualization Manager:
       Frames:
         All Enabled: true
         base_link:
+          Value: true
+        dummy_gripper_tip:
+          Value: true
+        ergo_jr/camera_ergo_link:
           Value: true
         fixed_tip:
           Value: true
@@ -236,6 +265,8 @@ Visualization Manager:
           Value: true
         section_5:
           Value: true
+        world:
+          Value: true
       Marker Alpha: 1
       Marker Scale: 0.10000000149011612
       Name: TF
@@ -243,17 +274,22 @@ Visualization Manager:
       Show Axes: true
       Show Names: true
       Tree:
-        base_link:
-          long_U:
-            section_1:
-              section_2:
-                section_3:
-                  section_4:
-                    fixed_tip:
-                      {}
-                    section_5:
-                      moving_tip:
+        world:
+          base_link:
+            ergo_jr/camera_ergo_link:
+              {}
+            long_U:
+              section_1:
+                section_2:
+                  section_3:
+                    section_4:
+                      fixed_tip:
                         {}
+                      section_5:
+                        dummy_gripper_tip:
+                          {}
+                        moving_tip:
+                          {}
       Update Interval: 0
       Value: true
   Enabled: true
@@ -280,17 +316,17 @@ Visualization Manager:
         Value: false
       Field of View: 0.7853981852531433
       Focal Point:
-        X: -0.044853903353214264
-        Y: -0.04446879029273987
-        Z: 2.086168393589105e-07
+        X: -0.02755918726325035
+        Y: 0.04782596230506897
+        Z: 1.788145169712152e-07
       Focal Shape Fixed Size: true
       Focal Shape Size: 0.05000000074505806
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.409797340631485
+      Pitch: 0.4047970771789551
       Target Frame: base_link
-      Yaw: 5.469944477081299
+      Yaw: 4.874955177307129
     Saved: ~
 Window Geometry:
   Displays:
@@ -304,7 +340,7 @@ Window Geometry:
     collapsed: false
   MotionPlanning - Trajectory Slider:
     collapsed: false
-  QMainWindow State: 000000ff00000000fd000000010000000000000275000003b9fc0200000007fb000000100044006900730070006c006100790073010000003d0000022a000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000004100fffffffb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000026d000001890000018900ffffff00000505000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
+  QMainWindow State: 000000ff00000000fd000000010000000000000275000003b9fc0200000007fb000000100044006900730070006c006100790073010000003d0000022a000000c900fffffffb0000000800480065006c00700000000342000000bb0000006e00fffffffb0000000a0056006900650077007300000003b0000000b0000000a400fffffffb0000000c00430061006d00650072006100000002ff000001610000000000000000fb0000001e004d006f00740069006f006e00200050006c0061006e006e0069006e00670100000374000001890000000000000000fb00000044004d006f00740069006f006e0050006c0061006e006e0069006e00670020002d0020005400720061006a006500630074006f0072007900200053006c00690064006500720000000000ffffffff0000001600000016fb0000001c004d006f00740069006f006e0050006c0061006e006e0069006e0067010000026d000001890000017d00ffffff00000505000003b900000001000000020000000100000002fc0000000100000002000000010000000a0054006f006f006c00730100000000ffffffff0000000000000000
   Views:
     collapsed: false
   Width: 1920

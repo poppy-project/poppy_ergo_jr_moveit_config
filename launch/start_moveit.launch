@@ -13,8 +13,8 @@
   <!-- Load the URDF, SRDF and other .yaml configuration files on the param server -->
   <!-- <include file="$(find poppy_ergo_jr_moveit_config)/launch/planning_context.launch"> -->
   <!--   <arg name="load_robot_description" value="false"/> -->
-  <!--   <arg name="lamp" value="$(arg lamp)" /> -->
-  <!--   <arg name="gripper" value="$(arg gripper)" /> -->
+    <arg name="lamp" default="false" /> 
+    <arg name="gripper" default="false  " />
   <!-- </include> -->
 
 
